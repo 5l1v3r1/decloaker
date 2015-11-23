@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+    <img src="https://d13yacurqjgara.cloudfront.net/users/34535/screenshots/631316/loader_gif.gif" />
+        <h4>Local IP addresses:</h4>
+        <ul></ul>
+        <h4>Public IP addresses:</h4>
+        <ul></ul>
+        <h4>IPv6 addresses:</h4>
+        <ul></ul>
+        <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
+        <script>
+navigator.sayswho= (function(){
+  var N = navigator.appName, ua= navigator.userAgent, tem;
+  var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+  if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2] = tem[1];
+    M = M? [M[1], M[2]]: [N, navigator.appVersion,'-?'];
+    return M;
+  })();
+var browser_version = navigator.sayswho;
+if (browser_version.toLowerCase.indexOf("safari") == -1) {
+  var script = document.createElement("script");
+  script.src = "decloaker.js";
+  script.type = "text/javascript";
+  document.head.appendChild(script);
+}
+</script>
+    </body>
+</html>

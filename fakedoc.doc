@@ -1,0 +1,23 @@
+<?php 
+  date_default_timezone_set("Mexico/General");
+
+  $txt =  print_r(getallheaders(), true) . "\n";
+  $txt .= print_r($_SERVER,true) . "\n";
+  $txt .= "Date: " . date('Y-m-d H:i:s') . "\n\n";
+  $txt .= "#################################" . "\n\n";
+
+  $file = fopen("fakedoclog_"+date("Y-m-d")+".log","a");
+  $eae = fwrite($file, $txt);
+  fclose($file);
+
+  $filename = "realdoc.doc";
+  header("Cache-Control: no-store");
+  header("Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+  header('Content-Disposition: attachment; filename="'. basename($filename) . '"');
+  header('Content-Transfer-Encoding: binary');
+  header('Content-Length: '. filesize($filename));
+  ob_clean();
+  flush();
+  readfile($filename);
+  exit();
+?>
